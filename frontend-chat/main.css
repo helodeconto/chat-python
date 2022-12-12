@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+:root {
+    --main-background-color: #D4C0AB;
+    --menu-color: #342D29;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+}
+
+/*barra rolagem*/
+::-webkit-scrollbar {
+    width: 0.7vw;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: var(--menu-color);
+}
+
+body {
+    display:flex;
+    flex-direction: column-reverse;
+    margin-top: 10vh;
+    margin-left: 30vw;
+    height: 80vh;
+    width: 40vw;
+    background-color: var(--main-background-color);
+    color: var(--menu-color);
+}
+
+input {
+    width: 40vw;
+    background-color: var(--menu-color);
+    color: var(--main-background-color);
+    margin-top: 2vh;
+}
+
+.display {
+    max-height: 70vh;
+    overflow-y: scroll;
+}
+
+.display > div {
+    margin-top: 2vh;
+}

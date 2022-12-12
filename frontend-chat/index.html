@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <title>Document</title>
+</head>
+<body>
+    
+    <form>
+        <input name="msg">
+    </form>
+    
+    <div class="display">
+    </div>
+
+    <script>
+        const display = document.querySelector(".display")
+        const form = document.querySelector("form")
+
+        var ws = new WebSocket('ws://127.0.0.1:8080')
+
+        ws.addEventListener("message", ev => {
+            const data = document.createElement("div")
+            data.innerHTML = ev.data
+            display.append(data)
+        })
+
+
+        form.addEventListener("submit", ev => {
+            ev.preventDefault()
+            ws.send(form.msg.value)
+            form.msg.value = ""
+        })
+
+    </script>
+</body>
+</html>
